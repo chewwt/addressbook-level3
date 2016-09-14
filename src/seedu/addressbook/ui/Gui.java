@@ -40,11 +40,14 @@ public class Gui {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("ui" + File.separator + "mainwindow.fxml"));
         stage.setTitle(version);
-        stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
+        Scene scene = new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT);
+        scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
+        stage.setScene(scene);
         stage.show();
         MainWindow mainWindow = loader.getController();
         mainWindow.setLogic(logic);
         mainWindow.setMainApp(mainApp);
+        mainWindow.setTheme(scene,stage);
         return mainWindow;
     }
 

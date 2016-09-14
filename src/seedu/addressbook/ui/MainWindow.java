@@ -5,6 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
@@ -22,6 +25,8 @@ public class MainWindow {
 
     private Logic logic;
     private Stoppable mainApp;
+    private Scene scene;
+    private Stage stage;
 
     public MainWindow(){
     }
@@ -32,6 +37,27 @@ public class MainWindow {
 
     public void setMainApp(Stoppable mainApp){
         this.mainApp = mainApp;
+    }
+    
+    public void setTheme(Scene scene,Stage stage){
+        this.scene = scene;
+        this.stage = stage;
+    }
+    
+    @FXML
+    void onDarkTheme() {
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    void OnLightTheme() {
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(getClass().getResource("LightTheme.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
