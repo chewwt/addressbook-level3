@@ -14,15 +14,14 @@
         <menus>
           <Menu mnemonicParsing="false" text="Theme">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#OnLightTheme" text="Light" />
+                  <MenuItem mnemonicParsing="false" onAction="#onLightTheme" text="Light" />
               <MenuItem mnemonicParsing="false" onAction="#onDarkTheme" text="Dark" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onHelp" text="All commands" />
+               </items></Menu>
         </menus>
       </MenuBar>
 

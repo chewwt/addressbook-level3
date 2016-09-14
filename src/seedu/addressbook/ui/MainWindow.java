@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.HelpCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
@@ -53,11 +54,17 @@ public class MainWindow {
     }
     
     @FXML
-    void OnLightTheme() {
+    void onLightTheme() {
         scene.getStylesheets().clear();
         scene.getStylesheets().add(getClass().getResource("LightTheme.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+    }
+    
+    @FXML
+    void onHelp() {
+        clearOutputConsole();
+        display(HelpCommand.MESSAGE_ALL_USAGES);    
     }
 
     @FXML
